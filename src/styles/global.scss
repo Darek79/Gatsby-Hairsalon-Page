@@ -1,0 +1,447 @@
+$defaultFontSize: 22px !default;
+$defaultFontSizeDesktop: 24px !default;
+$defaultFontQual: 18px !default;
+$defaultFontTitle: 22px !default;
+$defaultWhite: #f8f9fa !default;
+$defaultBackgroundTitle: #a9b1bc !default;
+$defaultBackground: #121417 !default;
+$defaultCategory: #707c8f !default;
+$defaultWidth: 100vw;
+
+@mixin paddingTitle {
+  padding: 15px 10px;
+  text-align: center;
+  background-color: $defaultBackgroundTitle;
+  color: $defaultBackground;
+  font-weight: bold;
+  font-size: $defaultFontSize;
+}
+
+@mixin blockDesc {
+  line-height: 1.5;
+  padding: 10px 10px;
+  font-size: $defaultFontQual;
+  list-style-type: square;
+}
+@mixin portraitUl {
+  padding-left: 30px;
+}
+
+@mixin arrow {
+  width: 30px;
+  height: 30px;
+}
+
+@mixin footerLogo {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+@mixin headerLogo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (min-width: 1000px) {
+  .root {
+    .header_title {
+      height: 100vh;
+
+      .header_contact_data {
+        position: absolute;
+        padding: 5px 0;
+        top: 0px;
+        z-index: 5;
+        background: $defaultBackground;
+        color: $defaultWhite;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        .header_adress,
+        .header_mobile,
+        .header_email {
+          display: flex;
+          align-items: center;
+          .header_logo {
+            @include headerLogo;
+          }
+        }
+      }
+      .navbar {
+        height: 60px;
+        bottom: 60px !important;
+        .header_links {
+          padding: 5px;
+          color: $defaultWhite;
+          font-size: $defaultFontSizeDesktop;
+        }
+        .header_links:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .content_wrapper {
+      width: 99.5vw;
+      .portrait {
+        display: flex;
+        justify-content: space-around;
+        background: $defaultBackground;
+        .portrait_img {
+          flex-basis: auto;
+          width: 700px;
+          height: 700px;
+        }
+        .portrait_desc_wrapper {
+          width: 50vw;
+          color: $defaultWhite;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+      }
+      .offer_wrapper {
+        width: 99.3vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+        .offer_wrapper_title {
+          width: 100%;
+        }
+        .offer_desc_module {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .offer_category {
+            width: 100%;
+          }
+          .offer_desc,
+          .offer_desc_prices {
+            width: 50%;
+          }
+        }
+      }
+    }
+    .footer {
+      width: 99.3%;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      .footer_desc_wrapper {
+        width: 60vw !important;
+        justify-self: center;
+      }
+      .footer_logoWrapper {
+        width: 60vw !important;
+        justify-self: center;
+      }
+      .footer_map {
+        width: 80vw !important;
+        justify-self: center;
+      }
+    }
+  }
+}
+
+body {
+  overflow-x: hidden !important;
+}
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: $defaultWidth;
+  position: relative;
+  // background-color: #00ff00;
+  .header_title {
+    grid-row: 1;
+    // width: 100vw;
+    max-height: 100vh;
+
+    .hamburger_links_hidden {
+      display: none;
+      position: fixed;
+      top: 0px;
+      z-index: 999;
+      left: -40vw;
+    }
+    .hamburger_links {
+      transition: all 350ms ease-in;
+      width: 80vw;
+      height: 100vh;
+      position: fixed;
+      transform: translateX(-0vw);
+      top: 0px;
+      z-index: 999;
+      background-color: $defaultBackground;
+      display: flex;
+      flex-direction: column;
+
+      .sidebar_closeX {
+        position: relative;
+        left: -5px;
+        top: 5px;
+        margin-left: auto;
+        @include arrow();
+      }
+      .scroll_link {
+        color: $defaultWhite;
+        font-size: $defaultFontSize;
+        position: relative;
+        left: 5vw;
+      }
+      .sidebar_path {
+        fill: $defaultWhite;
+      }
+      .hamburger_links_wrapper {
+        .scroll_link {
+          position: relative;
+          left: 10vw;
+          line-height: 2.5;
+        }
+      }
+    }
+    .header_img_title {
+      // max-width: 50vw;
+      height: 100vh;
+    }
+    .navbar {
+      // width: 50vw;
+      padding: 5px;
+      display: flex;
+      position: relative;
+      bottom: 50px;
+      justify-content: space-around;
+      background-color: $defaultBackground;
+      .navbar_phone,
+      .navbar_map,
+      .hamburger5 {
+        width: 40px;
+        height: 40px;
+      }
+      .lin1,
+      .lin2,
+      .lin3,
+      .lin4 {
+        transition: all 350ms;
+        transform-origin: 50% 50%;
+      }
+      // .hamburger5:hover {
+      //   .lin1 {
+      //     transform: translatey(-100px);
+      //     opacity: 0;
+      //   }
+      //   .lin2 {
+      //     // transform:rotate(90deg);
+      //     transform: translateX(100px);
+      //     opacity: 0;
+      //   }
+      //   .lin3 {
+      //     // transform:rotate(-180deg);
+      //     transform: translateX(-100px);
+      //     opacity: 0;
+      //   }
+      //   .lin4 {
+      //     transform: translatey(100px);
+      //     opacity: 0;
+      //   }
+      // }
+    }
+  }
+
+  .footer {
+    background-color: $defaultBackground;
+    grid-row: 3;
+    display: grid;
+    gap: 10px;
+    max-height: auto;
+
+    padding: 10px 0;
+    .footer_logo {
+      @include footerLogo();
+    }
+
+    .footer_desc_wrapper {
+      width: calc(100% - 20px);
+      height: auto;
+      color: $defaultWhite;
+      border: 1px solid $defaultWhite;
+      text-align: center;
+      margin: 0 10px;
+      padding: 5px 0;
+      font-size: $defaultFontTitle;
+
+      .footer_desc_title {
+        display: flex;
+        justify-content: center;
+
+        align-items: center;
+      }
+    }
+    .footer_desc_content {
+      font-size: $defaultFontSize;
+      padding-bottom: 5px;
+      margin-left: 8px;
+      margin-top: 10px;
+      .email_link {
+        text-decoration: none;
+        color: $defaultWhite;
+      }
+    }
+    .footer_map {
+      padding: 0 10px;
+      width: 100vw;
+      color: $defaultWhite;
+    }
+    .footer_map_desc {
+      text-align: center;
+      text-decoration: none;
+      color: $defaultWhite;
+    }
+    .footer_map_desc > a {
+      font-size: $defaultFontSize;
+      text-decoration: none;
+      color: $defaultWhite;
+    }
+    .footer_logoWrapper {
+      padding: 0 10px;
+      font-size: $defaultFontSize;
+      color: $defaultWhite;
+      text-align: center;
+      margin-bottom: 10px;
+      .footer_logoContent_wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .footer_logoContent {
+          height: auto;
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+          .footer_facebook,
+          .footer_instagram {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+    .footer_logoWrapper > p {
+      margin-bottom: 10px;
+    }
+    .scroll_link {
+      padding: 0 10px;
+      font-size: $defaultFontQual;
+      color: $defaultWhite;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+  .content_wrapper {
+    grid-row: 2;
+    .content_imgGallery {
+      background-color: $defaultBackground;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      .content_img {
+        height: 100%;
+      }
+      .imgBig_wrapper {
+        background-color: rgba(51, 51, 51, 0.7);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 150vh;
+        z-index: 999;
+        .closeX_wrapper {
+          margin-left: auto;
+          position: relative;
+          top: 30vh;
+          display: flex;
+          @include arrow();
+          .imgBig_closeX {
+            width: 100%;
+            height: 100%;
+          }
+          .imgBig_fill {
+            fill: $defaultWhite;
+          }
+        }
+        .imgBig_img {
+          position: relative;
+          top: 30vh;
+          width: 100%;
+          max-height: auto;
+        }
+      }
+    }
+    .offer_wrapper {
+      .offer_wrapper_title {
+        font-size: 24px;
+        padding: 15px 10px;
+        text-align: center;
+        background-color: $defaultBackground;
+        color: #d4d8dd;
+      }
+      .offer_desc_module {
+        background-color: $defaultWhite;
+
+        .offer_category {
+          @include paddingTitle();
+        }
+        .offer_desc {
+          @include blockDesc();
+        }
+        .offer_desc_prices {
+          background-color: $defaultWhite;
+          display: flex;
+          justify-content: space-between;
+          padding: 2px 5px;
+          background-color: #d4d8dd;
+          font-size: $defaultFontSize;
+        }
+      }
+    }
+    .portrait {
+      font-size: $defaultFontQual;
+      .portrait_title {
+        @include paddingTitle();
+      }
+      .portrait_desc {
+        @include blockDesc();
+      }
+      .portrait_ul {
+        @include portraitUl();
+      }
+      .portrait_title_con {
+        position: relative;
+        background-color: $defaultBackgroundTitle;
+        display: flex;
+        align-items: center;
+        .portrait_title {
+          width: 100vw;
+          @include paddingTitle();
+        }
+        .arrow {
+          position: absolute;
+          right: 5px;
+          @include arrow();
+        }
+        .arrowrotate {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
